@@ -1,4 +1,3 @@
-
 from tkinter import *
 
 
@@ -23,22 +22,27 @@ def click(event):
     elif text == "C":
         scvalue.set("")
         screen.update()
-
+    elif text == "H":
+        scvalue.set("History is Turned off")
+        screen.update()
     else:
         scvalue.set(scvalue.get() + text)
         screen.update()
 
 root = Tk()
-root.geometry("644x970")
+root.geometry("635x900")
+root.maxsize(635,900)
 root.title("Calculator")
 root.wm_iconbitmap("cal.ico")
-
 scvalue = StringVar()
 scvalue.set("")
 screen = Entry(root, textvar=scvalue, font="lucida 40 bold")
-screen.pack(fill=X, ipadx=8, pady=10, padx=10)
+screen.pack(fill=X, ipadx=5, pady=7, padx=7)
 
-f = Frame(root, bg="grey")
+f = Frame(root, bg="orange")
+b = Button(f, text="C", padx=25, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
 b = Button(f, text="9", padx=28, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
@@ -54,7 +58,11 @@ b.bind("<Button-1>", click)
 f.pack()
 
 
-f = Frame(root, bg="grey")
+f = Frame(root, bg="orange")
+b = Button(f, text="+", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
+
 b = Button(f, text="6", padx=28, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
@@ -70,7 +78,10 @@ b.bind("<Button-1>", click)
 f.pack()
 
 
-f = Frame(root, bg="grey")
+f = Frame(root, bg="blue")
+b = Button(f, text="-", padx=33, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
 b = Button(f, text="3", padx=28, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
@@ -83,26 +94,32 @@ b = Button(f, text="1", padx=28, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
 
+
 f.pack()
 
 
-f = Frame(root, bg="grey")
-b = Button(f, text="0", padx=31, pady=18, font="lucida 35 bold")
-b.pack(side=LEFT, padx=18, pady=5)
-b.bind("<Button-1>", click)
-
-b = Button(f, text="-", padx=31, pady=18, font="lucida 35 bold")
-b.pack(side=LEFT, padx=18, pady=5)
-b.bind("<Button-1>", click)
-
+f = Frame(root, bg="green")
 b = Button(f, text="*", padx=31, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
 
+b = Button(f, text=".", padx=35, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
+
+b = Button(f, text="0", padx=29, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
+
+b = Button(f, text="00", padx=31, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("<Button-1>", click)
+
+
 f.pack()
 
 
-f = Frame(root, bg="grey")
+f = Frame(root, bg="green")
 b = Button(f, text="/", padx=33, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
@@ -117,19 +134,13 @@ b.bind("<Button-1>", click)
 
 f.pack()
 
-f = Frame(root, bg="grey")
-b = Button(f, text="C", padx=26, pady=18, font="lucida 35 bold")
+b = Button(f, text="H", padx=26, pady=18, font="lucida 35 bold")
 b.pack(side=LEFT, padx=18, pady=5)
 b.bind("<Button-1>", click)
 
-b = Button(f, text=".", padx=26, pady=18, font="lucida 35 bold")
-b.pack(side=LEFT, padx=18, pady=5)
-b.bind("<Button-1>", click)
-
-b = Button(f, text="00", padx=26, pady=18, font="lucida 35 bold")
-b.pack(side=LEFT, padx=18, pady=5)
-b.bind("<Button-1>", click)
 
 f.pack()
+
+
 
 root.mainloop()
