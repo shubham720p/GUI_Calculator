@@ -30,7 +30,7 @@ def click(event):
         screen.update()
 
 root = Tk()
-root.geometry("635x900")
+root.geometry("635x895")
 root.maxsize(635,900)
 root.title("Calculator")
 root.wm_iconbitmap("cal.ico")
